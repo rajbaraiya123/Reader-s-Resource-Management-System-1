@@ -1,4 +1,4 @@
 <?php
-	if(!isset($_COOKIE["login.php"]))
-		header("location: login.php");
+	if(!isset($_COOKIE["login"]))
+		header("location: ../login.php?re=1");
 ?>

@@ -1,13 +1,15 @@
-
+<?php
+	include("cookie.php");
+?>
+<?php
+ include("session1.php");
+ ?>
 <?php
 	$con=mysql_connect("localhost","root","");
 	mysql_select_db("lib1");
-?>
-<?php
-	include("cookie.php");
 ?><html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Education Time | Full Width</title>
+<title>Reader's Resource</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link rel="stylesheet" href="../layout/styles/layout.css" type="text/css" />
     <style type="text/css">
@@ -59,16 +61,18 @@
         </style>
 </head>
 <body id="top">
-    <form method="POST" action="">
+    <form method="POST" action="search.php">
 <div class="wrapper row1">
   <div id="header" class="clear">
     <div class="fl_left">
-      <h1><a href="../index.html">Education Time</a></h1>
-      <p>Free Website Template</p>
+      <h1><a href="../index.html">Reader's Resource</a></h1>
+     
     </div>
       <fieldset>
         <legend>Student Login</legend>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="logout.php">LOG OUT </a>
+      
           <table align="right" class="auto-style12">
               <tr>
                   <td>&nbsp;</td>
@@ -81,10 +85,10 @@
 <!-- ####################################################################################################### -->
 <div class="wrapper row2">
   <div id="topnav">
-    <ul>
-     <li ><a href="../adminhomepage.php">Homepage</a></li>
-	     <li class="active"><a href="viewbooks.php">BOOKS</a></li>
-      <li > <a href="uploadbooks.php">View Uploaded Books</a></li>
+   <ul>
+      <li ><a href="../homepage.php">Homepage</a></li>
+	     <li><a href="viewbooks.php">BOOKS</a></li>
+      <li><a href="uploadbooks.php">View Uploaded Books</a></li>
     
       <li><a href="addcat.php">Add Things</a>
         <ul>
@@ -94,10 +98,13 @@
         </ul>
       </li>
       <li><a href="news.php">News Feeds</a></li>
-	    <li ><a href="uploadbooks.php">Modified</a></li>
+	    <li class="active" ><a href="modified.php">Modified</a></li>
 	   
       <li class="last" ><a href="userprofile.php">Profile</a></li>
+	 
+	  
     </ul>
+
     <div  class="clear"></div>
   </div>
 </div>
@@ -114,55 +121,21 @@
                           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                               <table class="auto-style14">
                                   <tr>
-                                      <td class="auto-style17" style="color: #000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="txtsearch" placeholder="Type to Search" />
-                                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                          <select name="cbosearch">
-												<option>ISBN</option>
-												<option>Book Name</option>
-												<option>Authore</option>
-												<option>category</option>
-												<option>language</option>
-											</select>
-&nbsp;&nbsp;&nbsp;&nbsp;
-                                           <input type="submit" value="Search" name="cmdsearch">
-										   <?php
-										   if(isset($_POST['txtsearch']))
-										   {
-												 $text = $_POST['txtsearch'];
-												if($text==""){
-																	echo "No Data....Please Try Again!!!"."<br>";
-																
-																}
-										   }
-										   else
-										   {
-											   echo"No data";
-										   }
-											?>
-										<?php
-										 if(isset($_POST['txtsearch']) && isset($_POST['cbosearch']))
-										 {
-													$cbo = $_POST['cbosearch'];
-													$search = $_POST['txtsearch'];
-										 }
-												
-											?>
+                                      <td class="auto-style17" style="color: #000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<form method="post" action="searchidandname.php">
+    <select name="cbosearch">
+		<option>ISBN</option>
+    	<option>Book Name</option>
+    	<option>Authore</option>
+        <option>category</option>
+        <option>language</option>
+    </select>
+	<input type="text" name="txtsearch" placeholder="Type to Search" /><input type="submit" name="cmdsearch" value="Search" />
+    </form>
+										   
 										
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a>Category</a>&nbsp;&nbsp;
 										
-                                        <select name="category">
-															<option>Select Category</option>
-															<?php
-															$get_cats = "select * from category";
-															$run_cats=mysql_query($get_cats);
-															while($row_cats=mysql_fetch_array($run_cats))
-															{
-																$cat_id=$row_cats['cid'];
-																$cat_name=$row_cats['cname'];
-																echo "<option value='$cat_id'>$cat_name</option>";
-															}
-															?>
-										</select>
+                                       
                                       </td>
                                   </tr>
                               </table>
@@ -170,80 +143,32 @@
                       </tr>
 					  
                    </table>
-				   <?php
-					if($cbo=="ISBN")
-					{
-						$id = mysql_query("SELECT isbn,bname,authname,category,language,image FROM books  WHERE isbn ='$search'");
-					?>
+				   
 				
-					
-				<div id="product_box">
+<table>
+    	
+        <?php
+			include "connect.php";
+			$i = "select isbn,bname,authname,category,language,image,pdf from books";
+			$h = mysql_query($i);
+			while($tr=mysql_fetch_array($h))
+			{
+		?>
+        <tr>
+			<td>&nbsp;&nbsp;&nbsp;<img src="../<?php echo $tr[5]; ?>" width='67px' height='78px' /></td>
+        	<td><a><?php echo $tr[0]; ?></a></td>
+            <td><a><?php echo $tr[1]; ?></a></td>
+            <td><a><?php echo $tr[2]; ?></a></td>
+            <td><a><?php echo $tr[3]; ?></a></td>
+			<td><a><?php echo $tr[4]; ?></a></td>
 
-
-
-
-
-<?php
-
-while($row =mysql_fetch_array($id)){
-
-	//print_r($row);
-		$id=$row['isbn'];
-		$name=$row['bname'];
-		$photo1=$row['image'];
-		$auth=$row['authname'];
-		echo
-		"
-			<div id='single_product'>
-				<h3>$name</h3>
-				<img src='../$photo1' width='150px' height='150px' /><br/>
-				
-				<a href='we.php?id=$id'>Description</a>				
-				
-			</div>
-			
-		";
-				
-}
-
-}
-
-else if($cbo=="Book Name")
-		{
-			$na = mysql_query( "SELECT isbn,bname,authname,category,language FROM books WHERE bname REGEXP '[\\d \\D \\S \\s]*".$search."[\\d \\D \\S \\s]*'");
-	?>
-
-<?php
-
-while($row =mysql_fetch_array($na)){
-
-	//print_r($row);
-		$id=$row['isbn'];
-		$name=$row['bname'];
-		$photo1=$row['image'];
-		$auth=$row['authname'];
-		echo
-		"
-			<div id='single_product'>
-				<h3>$name</h3>
-				<img src='../$photo1' width='150px' height='150px' /><br/>
-				
-				<a href='we.php?id=$id'>Description</a>				
-				
-			</div>
-			
-		";
-				
-}
-}
-
-
-?>
-</div>
-
-              </td>
-          </tr>
-      </table>
+            <td align="center"><a href="Delete_Form.php? txtid=<?php echo $tr[0];?>">Delete</a><a> /</a> <a href="read.php?id=<?php echo $tr[0];?>">Read</a> </td>    
+        </tr>
+        <?php
+			}
+		?>
+		
+    </table>
   </div>
 </div>
 <!-- ####################################################################################################### -->

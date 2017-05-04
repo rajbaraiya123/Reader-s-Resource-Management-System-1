@@ -1,10 +1,9 @@
-
+<?php
+	include("cookie.php");
+?>
 <?php
 	$con=mysql_connect("localhost","root","");
 	mysql_select_db("lib1");
-?>
-<?php
-	include("cookie.php");
 ?><html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Education Time | Full Width</title>
@@ -56,10 +55,11 @@
 }
 #single_product{float:left; margin-left:20px; padding:10px;}
 #single_product img{border:2px solid black;}
+        
         </style>
 </head>
 <body id="top">
-    <form method="POST" action="">
+    <form method="POST" action="product12.php">
 <div class="wrapper row1">
   <div id="header" class="clear">
     <div class="fl_left">
@@ -68,7 +68,9 @@
     </div>
       <fieldset>
         <legend>Student Login</legend>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="logout.php">LOG OUT </a>
+      
           <table align="right" class="auto-style12">
               <tr>
                   <td>&nbsp;</td>
@@ -81,12 +83,11 @@
 <!-- ####################################################################################################### -->
 <div class="wrapper row2">
   <div id="topnav">
-    <ul>
-     <li ><a href="../adminhomepage.php">Homepage</a></li>
-	     <li class="active"><a href="viewbooks.php">BOOKS</a></li>
-      <li > <a href="uploadbooks.php">View Uploaded Books</a></li>
-    
-      <li><a href="addcat.php">Add Things</a>
+   <ul>
+       <li ><a href="../homepage.php">Homepage</a></li>
+      <li><a href="style-demo.html">LIBRARY</a></li>
+      <li class="active"><a href="viewbooks.php">BOOKS</a></li>
+      <li><a href="addcat.php">DropDown</a>
         <ul>
           <li><a href="#">Link 1</a></li>
           <li><a href="#">Link 2</a></li>
@@ -94,10 +95,10 @@
         </ul>
       </li>
       <li><a href="news.php">News Feeds</a></li>
-	    <li ><a href="uploadbooks.php">Modified</a></li>
-	   
-      <li class="last" ><a href="userprofile.php">Profile</a></li>
+      <li class="last"><a href="userprofile.php">Profile</a></li>
+	  
     </ul>
+
     <div  class="clear"></div>
   </div>
 </div>
@@ -125,7 +126,7 @@
 											</select>
 &nbsp;&nbsp;&nbsp;&nbsp;
                                            <input type="submit" value="Search" name="cmdsearch">
-										   <?php
+										    <?php
 										   if(isset($_POST['txtsearch']))
 										   {
 												 $text = $_POST['txtsearch'];
@@ -170,22 +171,21 @@
                       </tr>
 					  
                    </table>
-				   <?php
-					if($cbo=="ISBN")
-					{
-						$id = mysql_query("SELECT isbn,bname,authname,category,language,image FROM books  WHERE isbn ='$search'");
-					?>
-				
-					
+				   
 				<div id="product_box">
 
-
+<?php getpro() ?>
 
 
 
 <?php
-
-while($row =mysql_fetch_array($id)){
+function getpro()
+{
+mysql_pconnect("localhost", "root", "");
+mysql_select_db ("lib1");
+$sql=mysql_query("SELECT * FROM books WHERE bname REGEXP '[\\d \\D \\S \\s]*".$search."[\\d \\D \\S \\s]*' ")
+or die(mysql_error());
+while($row =mysql_fetch_array($sql)){
 
 	//print_r($row);
 		$id=$row['isbn'];
@@ -198,37 +198,7 @@ while($row =mysql_fetch_array($id)){
 				<h3>$name</h3>
 				<img src='../$photo1' width='150px' height='150px' /><br/>
 				
-				<a href='we.php?id=$id'>Description</a>				
-				
-			</div>
-			
-		";
-				
-}
-
-}
-
-else if($cbo=="Book Name")
-		{
-			$na = mysql_query( "SELECT isbn,bname,authname,category,language FROM books WHERE bname REGEXP '[\\d \\D \\S \\s]*".$search."[\\d \\D \\S \\s]*'");
-	?>
-
-<?php
-
-while($row =mysql_fetch_array($na)){
-
-	//print_r($row);
-		$id=$row['isbn'];
-		$name=$row['bname'];
-		$photo1=$row['image'];
-		$auth=$row['authname'];
-		echo
-		"
-			<div id='single_product'>
-				<h3>$name</h3>
-				<img src='../$photo1' width='150px' height='150px' /><br/>
-				
-				<a href='we.php?id=$id'>Description</a>				
+				<a href='we.php?id=".$row['isbn']."'>Description</a>				
 				
 			</div>
 			
@@ -236,8 +206,6 @@ while($row =mysql_fetch_array($na)){
 				
 }
 }
-
-
 ?>
 </div>
 

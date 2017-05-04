@@ -68,7 +68,9 @@
     </div>
       <fieldset>
         <legend>Student Login</legend>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="logout.php">LOG OUT </a>
+      
           <table align="right" class="auto-style12">
               <tr>
                   <td>&nbsp;</td>
@@ -82,7 +84,7 @@
 <div class="wrapper row2">
   <div id="topnav">
     <ul>
-     <li ><a href="../adminhomepage.php">Homepage</a></li>
+      <li ><a href="../adminhomepage.php">Homepage</a></li>
 	     <li class="active"><a href="viewbooks.php">BOOKS</a></li>
       <li > <a href="uploadbooks.php">View Uploaded Books</a></li>
     
@@ -210,7 +212,7 @@ while($row =mysql_fetch_array($id)){
 
 else if($cbo=="Book Name")
 		{
-			$na = mysql_query( "SELECT isbn,bname,authname,category,language FROM books WHERE bname REGEXP '[\\d \\D \\S \\s]*".$search."[\\d \\D \\S \\s]*'");
+			$na = mysql_query( "SELECT * FROM books WHERE bname REGEXP '[\\d \\D \\S \\s]*".$search."[\\d \\D \\S \\s]*'");
 	?>
 
 <?php
@@ -236,7 +238,89 @@ while($row =mysql_fetch_array($na)){
 				
 }
 }
+else if($cbo=="Authore")
+		{
+			$na1 = mysql_query("SELECT * FROM books WHERE authname REGEXP '[\\d \\D \\S \\s]*".$search."[\\d \\D \\S \\s]*'");
+?>
+<?php
 
+while($row =mysql_fetch_array($na1)){
+
+	//print_r($row);
+		$id=$row['isbn'];
+		$name=$row['bname'];
+		$photo1=$row['image'];
+		$auth=$row['authname'];
+		echo
+		"
+			<div id='single_product'>
+				<h3>$name</h3>
+				<img src='../$photo1' width='150px' height='150px' /><br/>
+				
+				<a href='we.php?id=$id'>Description</a>				
+				
+			</div>
+			
+		";
+				
+}
+}
+
+else if($cbo=="category")
+		{
+			$na2 = mysql_query("SELECT * FROM books WHERE category REGEXP '[\\d \\D \\S \\s]*".$search."[\\d \\D \\S \\s]*'");
+?>
+<?php
+
+while($row =mysql_fetch_array($na2)){
+
+	//print_r($row);
+		$id=$row['isbn'];
+		$name=$row['bname'];
+		$photo1=$row['image'];
+		$auth=$row['authname'];
+		echo
+		"
+			<div id='single_product'>
+				<h3>$name</h3>
+				<img src='../$photo1' width='150px' height='150px' /><br/>
+				
+				<a href='we.php?id=$id'>Description</a>				
+				
+			</div>
+			
+		";
+				
+}
+}
+
+else if($cbo=="language")
+{
+			$na3 = mysql_query("SELECT * FROM books WHERE language REGEXP '[\\d \\D \\S \\s]*".$search."[\\d \\D \\S \\s]*'");
+?>
+<?php
+
+while($row =mysql_fetch_array($na3)){
+
+	//print_r($row);
+		$id=$row['isbn'];
+		$name=$row['bname'];
+		$photo1=$row['image'];
+		$auth=$row['authname'];
+		echo
+		"
+			<div id='single_product'>
+				<h3>$name</h3>
+				<img src='../$photo1' width='150px' height='150px' /><br/>
+				
+				<a href='we.php?id=$id'>Description</a>				
+				
+			</div>
+			
+		";
+				
+}
+}
 
 ?>
 </div>

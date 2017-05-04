@@ -11,24 +11,24 @@ $db=mysql_select_db(DB_NAME,$con) or die("Failed to connect to MySQL: " . mysql_
 
 function NewUser()
 {
-	$fullname = $_POST['lan'];
+	$fullname = $_POST['cato'];
 	
 	
 		
     
-	$query = "INSERT INTO language (lname) VALUES ('$fullname')";
+	$query = "INSERT INTO category (cname) VALUES ('$fullname')";
 	$data = mysql_query ($query)or die(mysql_error());
 	if($data)
 	{
-	echo "Category Is Uploaded...";
+	header("Location: addcat.php?cat=1");
 	}
 }
 
 function SignUp()
 {
-if(!empty($_POST['lan']))   //checking the 'user' name which is from Sign-Up.html, is it empty or have some text
+if(!empty($_POST['cato']))   //checking the 'user' name which is from Sign-Up.html, is it empty or have some text
 {
-	$query = mysql_query("SELECT lname FROM language WHERE lname = '$_POST[lan]' ") or die(mysql_error());
+	$query = mysql_query("SELECT cname FROM category WHERE cname = '$_POST[cato]' ") or die(mysql_error());
 
 	if(!$row = mysql_fetch_array($query) or die(mysql_error()))
 	{
@@ -36,11 +36,11 @@ if(!empty($_POST['lan']))   //checking the 'user' name which is from Sign-Up.htm
 	}
 	else
 	{
-		echo "SORRY...YOU ARE ALREADY REGISTERED USER...";
+		header("Location: addcat.php?catu=1");
 	}
 }
 }
-if(isset($_POST['lan']))
+if(isset($_POST['cato']))
 {
 	SignUp();
 }

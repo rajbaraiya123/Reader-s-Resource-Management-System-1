@@ -1,8 +1,12 @@
+<?php 
+	session_start();
+?>
 <?php
 	include("cookie.php");
 ?>
-<?php
-include('session1.php');
+   <?php
+	$con=mysql_connect("localhost","root","");
+	mysql_select_db("lib1");
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -10,72 +14,48 @@ include('session1.php');
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link rel="stylesheet" href="../layout/styles/layout.css" type="text/css" />
     <style type="text/css">
-	
         .auto-style1 {
             width: 100%;
             border-left-style: solid;
-            border-left-width: 3px;
-            border-right: 3px solid #C0C0C0;
+            border-left-width: 2px;
+            border-right: 2px solid #C0C0C0;
             border-top-style: solid;
-            border-top-width: 3px;
-            border-bottom: 3px solid #C0C0C0;
+            border-top-width: 2px;
+            border-bottom: 2px solid #C0C0C0;
         }
         .auto-style4 {
             width: 1067px;
         }
         .auto-style5 {
             width: 75%;
-            border: 3px solid #CCCCCC;
+            border: 0px hidden	#C0C0C0;
         }
         .auto-style6 {
             height: 27px;
         }
         .auto-style7 {
             width: 24%;
-            border: 3px solid #CCCCCC;
+            border: 0px hidden #C0C0C0;
         }
         .auto-style8 {
-            width: 249px;
+            width: 255px;
         }
         .auto-style9 {
             height: 23px;
         }
-        .auto-style10 {
-            width: 249px;
-            height: 10px;
-        }
-        .auto-style11 {
-            width: 249px;
-            height: 6px;
+        .auto-style12 {
+            height: 25px;
         }
         .auto-style13 {
-            width: 273px;
-            height: 96px;
+            width: 255px;
+            height: 81px;
         }
         .auto-style14 {
-            height: 71px;
-        }
-        .auto-style15 {
-            font-family: "Yu Gothic UI";
-            border-left-color: #A0A0A0;
-            border-right-color: #C0C0C0;
-            border-top-color: #A0A0A0;
-            border-bottom-color: #C0C0C0;
-            padding: 1px;
-        }
-        .auto-style16 {
-            font-family: monospace;
-            border-left-color: #A0A0A0;
-            border-right-color: #C0C0C0;
-            border-top-color: #A0A0A0;
-            border-bottom-color: #C0C0C0;
-            padding: 1px;
-        }
-        .auto-style17 {
-            width: 249px;
+            width: 255px;
             height: 23px;
         }
-        .auto-style18 {
+        .auto-style15 {
+            font-family: Algerian;
             font-size: x-large;
             border-left-color: #A0A0A0;
             border-right-color: #C0C0C0;
@@ -83,50 +63,62 @@ include('session1.php');
             border-bottom-color: #C0C0C0;
             padding: 1px;
         }
+        .auto-style16 {
+            font-family: Algerian;
+        }
+        .auto-style17 {
+            height: 27px;
+            font-family: Algerian;
+        }
+        .auto-style18 {
+            font-family: Algerian;
+            height: 22px;
+        }
         .auto-style19 {
-            width: 249px;
-            height: 31px;
+            font-family: Algerian;
+            border-left-color: #A0A0A0;
+            border-right-color: #C0C0C0;
+            border-top-color: #A0A0A0;
+            border-bottom-color: #C0C0C0;
+            padding: 1px;
         }
     </style>
 </head>
 <body id="top">
+    <form id="form1" runat="server">
 <div class="wrapper row1">
   <div id="header" class="clear">
     <div class="fl_left">
-      <h1><a href="homepage.php">Reader's Resource</a></h1>
-      <p></p>
+      <h1><a href="../index.html">Education Time</a></h1>
+      <p>Free Website Template</p>
     </div>
-	<br/>
+      <fieldset>
+        <br/>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="logout.php">LOG OUT </a>
       
-      
       </fieldset>
-    </form>
-  </div>
+    </div>
 </div>
 <!-- ####################################################################################################### -->
 <div class="wrapper row2">
   <div id="topnav">
-  <ul>
-      <li ><a href="../homepage.php">Homepage</a></li>
-	     <li ><a href="viewbooks.php">BOOKS</a></li>
-      <li><a href="uploadbooks.php">View Uploaded Books</a></li>
+    <ul>
+      <li ><a href="../adminhomepage.php">Homepage</a></li>
+	     <li class="active"><a href="viewbooks.php">BOOKS</a></li>
+      <li > <a href="uploadbooks.php">View Uploaded Books</a></li>
     
-      <li class="active"><a href="addcat.php">Add Things</a>
+      <li><a href="addcat.php">Add Things</a>
         <ul>
-          <li><a href="addcat.php">ADD CATEGORY</a></li>
-          <li><a href="addbooks1.php">ADD BOOKS</a></li>
-          <li><a href="addlan.php">ADD LANGUAGE</a></li>s
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>s
         </ul>
       </li>
-      <li ><a href="news.php">News Feeds</a></li>
-	    <li ><a href="modified.php">Modified</a></li>
+      <li><a href="news.php">News Feeds</a></li>
+	    <li ><a href="uploadbooks.php">Modified</a></li>
 	   
-      <li class="last" ><a href="userprofile.php">Profile</a></li>
-
-	  
+      <li class=" last" ><a href="userprofile.php">Profile</a></li>
     </ul>
-
     <div  class="clear"></div>
   </div>
 </div>
@@ -138,113 +130,110 @@ include('session1.php');
           <tr>
               <td class="auto-style4">
                   <table align="right" class="auto-style5">
+                      <caption>
+                          <br />
+                      </caption>
                       <tr>
-                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a href="addcat.php">ADD CATEGORY</a></td>
+					  <?php
+$id = $_GET['id'];
+$q = "SELECT isbn,bname,authname,category,language,image,pdf,descript FROM books WHERE isbn = '".$id."'";
+$r = mysql_query($q) or die(mysql_error()) ;
+$a = mysql_fetch_array($r);
+{
+	?>
+                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style15">&nbsp;&nbsp;<a><?php  echo  $a['bname'];  ?></a></span></td>
                       </tr>
                       <tr>
-                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                          <td class="auto-style12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
                       </tr>
                       <tr>
-                          <td class="auto-style14">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              <img alt="" class="auto-style13" src="z.png" ></td>
+                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style16">Authore Name </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style19">&nbsp;<a><?php echo $a['authname'] ?></a></span></td>
                       </tr>
                       <tr>
                           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                               </td>
                       </tr>
                       <tr>
-                          <td>&nbsp;</td>
+                          <td class="auto-style18">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Language&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a><?php echo $a['language']; ?></a></td>
                       </tr>
                       <tr>
-                          <td>&nbsp;</td>
+                          <td class="auto-style16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
                       </tr>
-					   <form action="addcatpro.php" method="POST">
                       <tr>
-                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>ADD CATEGORY</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              <input type="text" name="cato">
-                          </td>
+                          <td class="auto-style16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Category- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a><?php echo $a['category']; ?></a></td>
                       </tr>
                       <tr>
                           <td class="auto-style9"></td>
                       </tr>
                       <tr>
-                          <td class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                          <td class="auto-style17">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a><?php $a['descript']; ?></a></td>
                       </tr>
                       <tr>
-                          <td class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="submit">
+                          <td class="auto-style17">&nbsp;</td>
+                      </tr>
+                      <tr>
+                          <td class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                      </tr>
+                      <tr>
+                          <td class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
+                      </tr>
+                      <tr>
+                          <td class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                      </tr>
+                      <tr>
+                          <td class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
+                      </tr>
+                      <tr>
+                          <td class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Image ID="Image2" runat="server" Height="30px" Width="136px" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <asp:Image ID="Image3" runat="server" Height="30px" Width="136px" />
                           </td>
                       </tr>
-					   </form>
                       <tr>
-                          <td class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                          <td class="auto-style6">&nbsp;</td>
                       </tr>
                       <tr>
                           <td class="auto-style6">&nbsp;</td>
                       </tr>
-					  <tr>
-                          <td class="auto-style6">&nbsp;</td>
-                      </tr> <tr>
-                          <td class="auto-style6"></td>
-                      </tr> <tr>
-                          <td class="auto-style6">&nbsp;</td>
-                      </tr> <tr>
+                      <tr>
                           <td class="auto-style6">&nbsp;</td>
                       </tr>
-                      </table>
-                  <table align="left" class="auto-style7">
                       <tr>
-                          <td class="auto-style19">&nbsp;&nbsp; <span class="auto-style16">&nbsp;<span class="auto-style18">&nbsp;<a> ADMIN PANEL</a>&nbsp;</span></span></td>
+                          <td class="auto-style6">&nbsp;</td>
                       </tr>
                       <tr>
-                          <td class="auto-style8">&nbsp;</td>
+                          <td class="auto-style6">&nbsp;</td>
                       </tr>
                       <tr>
-                          <td class="auto-style8">&nbsp;</td>
-                      </tr>
-                      <tr>
-                          <td class="auto-style8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="addbooks1.php"> ADD BOOKS</a>&nbsp;</td>
-                      </tr>
-                      <tr>
-                          <td class="auto-style8">&nbsp;</td>
-                      </tr>
-                      <tr>
-                          <td class="auto-style8">&nbsp;</td>
-                      </tr>
-                      <tr>
-                          <td class="auto-style8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-                      </tr>
-                      <tr>
-                          <td class="auto-style8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="addcat.php"> ADD CATEGORY </a>&nbsp;</td>
-                      </tr>
-                      <tr>
-                          <td class="auto-style8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-                      </tr>
-                      <tr>
-                          <td class="auto-style8">&nbsp;</td>
-                      </tr>
-                      <tr>
-                          <td class="auto-style8">&nbsp;</td>
-                      </tr>
-                      <tr>
-                          <td class="auto-style17">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="addlan.php"> ADD LANGUAGE</a>&nbsp;</td>
-                      </tr>
-                      <tr>
-                          <td class="auto-style11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-                      </tr>
-                      <tr>
-                          <td class="auto-style8"></td>
-                      </tr>
-                      <tr>
-                          <td class="auto-style10"></td>
-                      </tr>
-                      <tr>
-                          <td class="auto-style10">&nbsp;</td>
-                      </tr>
-                      <tr>
-                          <td class="auto-style10">&nbsp;</td>
+                          <td class="auto-style6">&nbsp;</td>
                       </tr>
                   </table>
+                  <table align="left" class="auto-style7">
+                      <caption>
+                      </caption>
+                      <tr>
+                          <td class="auto-style8">&nbsp;</td>
+                      </tr>
+                      <tr>
+                          <td class="auto-style8">&nbsp;</td>
+                      </tr>
+                      <tr>
+                          <td class="auto-style8">&nbsp;&nbsp;&nbsp;
+                              <img src='../<?php $a['image'] ?>' width='150px' height='150px' />
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="auto-style14">&nbsp;&nbsp;&nbsp; </td>
+                      </tr>
+                      <tr>
+                          <td class="auto-style13"></td>
+                      </tr>
+                      <tr>
+                          <td class="auto-style13">&nbsp;</td>
+                      </tr>
+                      </table>
               </td>
+<?php } ?>
           </tr>
       </table>
   </div>
@@ -319,7 +308,7 @@ include('session1.php');
     <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
   </div>
 </div>
-   
+    </form>
 </body>
 </html>
 
