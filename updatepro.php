@@ -1,12 +1,12 @@
 <?php
-include('session1.php');
+include('session.php');
 ?>
  <?php
       mysql_connect("localhost","root","");
 	mysql_select_db("library");
-        $i = mysql_query("update admin1 set id='".$_POST['id']."',password='".$_POST['password']."', email='".$_POST['email']."', phno='".$_POST['contact']."' where uid=$loggedin_id");
+        $i = mysql_query("update member1 set id='".$_POST['id']."',password='".$_POST['password']."', email='".$_POST['email']."', phno='".$_POST['contact']."' where uid=$loggedin_id");
         if($i==true){
-        header('Location: ../adminlogin.php?ans=1');
+        header('Location: ../login.php?ans=1');
         }
 		else
 		{

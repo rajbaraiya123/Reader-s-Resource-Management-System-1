@@ -1,5 +1,5 @@
 <?php
-include('session1.php');
+include('session.php');
 ?>
 <?php
 	include("cookie.php");
@@ -78,37 +78,38 @@ include('session1.php');
       <p></p>
     </div>
 	<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="alogout.php">LOG OUT </a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="logout.php">LOG OUT </a>
       
       
       </fieldset>
- 
+    
   </div>
 </div>
-<form action="updatepro.php" method="POST">
+
 <!-- ####################################################################################################### -->
 <div class="wrapper row2">
   <div id="topnav">
     <ul>
-     <li ><a href="../adminhomepage.php">Homepage</a></li>
-	     <li><a href="viewbooks.php">BOOKS</a></li>
-      <li > <a href="uploadbooks.php">View Uploaded Books</a></li>
-    
-      <li><a href="addcat.php">Add Things</a>
+    <li ><a href="../homepage.php">Homepage</a></li>
+      
+      <li ><a href="pages/viewbooks.php">BOOKS</a></li>
+	  <li ><a href="pages/viewfavrit1.php">My Books</a></li>
+      <li><a href="pages/add.php">DropDown</a>
         <ul>
           <li><a href="#">Link 1</a></li>
           <li><a href="#">Link 2</a></li>
           <li><a href="#">Link 3</a></li>s
         </ul>
       </li>
-      <li><a href="news.php">News Feeds</a></li>
-	    <li ><a href="uploadbooks.php">Modified</a></li>
-	   
-      <li class="active last" ><a href="userprofile.php">Profile</a></li>
+      <li><a href="pages/news.php">News Feeds</a></li>
+	  <li ><a href="pages/addbooks2.php">Upload Book</a></li>
+      <li class="active last"><a href="pages/userprofile.php">Profile</a></li>
+	  
     </ul>
     <div  class="clear"></div>
   </div>
 </div>
+<form action="updatepro.php" method="POST">
 <!-- ####################################################################################################### -->
 <div class="wrapper row4">
   <div id="container" class="clear"> 
@@ -152,7 +153,7 @@ include('session1.php');
                           <td class="auto-style3">&nbsp;</td>
                       </tr>
                       <tr>
-                          <td class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="updateprofile.php"> UPDATE PROFILE</a>&nbsp;</td>
+                          <td class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="update.php"> UPDATE PROFILE</a>&nbsp;</td>
                       </tr>
                       <tr>
                           <td class="auto-style3">&nbsp;</td>
@@ -181,7 +182,7 @@ include('session1.php');
                   </table>
 				  <?php
 		include ("db.php");
-		$i ="select uid,id,password,email,phno from admin1 where uid=$loggedin_id";
+		$i ="select uid,id,password,email,phno from member1 where uid=$loggedin_id";
 		$result=mysqli_query($db,$i);
 		
 	?>

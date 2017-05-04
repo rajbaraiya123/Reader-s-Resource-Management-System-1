@@ -1,5 +1,5 @@
 <?php
-include('session1.php');
+include('session.php');
 ?>
 <?php
 	include("cookie.php");
@@ -62,7 +62,7 @@ include('session1.php');
     <form method="POST" action="updatepro.php" >
 <?php
 		include ("db.php");
-		$i ="select id,password,email,phno from admin1 where uid=$loggedin_id";
+		$i ="select id,password,email,phno from member1 where uid=$loggedin_id";
 		$result=mysqli_query($db,$i);
 		
 	?>
@@ -73,8 +73,8 @@ while($rows=mysqli_fetch_array($result)){
 <div class="wrapper row1">
   <div id="header" class="clear">
     <div class="fl_left">
-      <h1><a href="../index.html">Education Time</a></h1>
-      <p>Free Website Template</p>
+      <h1><a href="../index.html">Reader's Resource</a></h1>
+    
     </div>
       
     </div>
@@ -83,11 +83,10 @@ while($rows=mysqli_fetch_array($result)){
 <div class="wrapper row2">
   <div id="topnav">
     <ul>
-      <li ><a href="../adminhomepage.php">Homepage</a></li>
-	     <li><a href="viewbooks.php">BOOKS</a></li>
-      <li > <a href="uploadbooks.php">View Uploaded Books</a></li>
-    
-      <li><a href="addcat.php">Add Things</a>
+       <li ><a href="../homepage.php">Homepage</a></li>
+      <li><a href="style-demo.html">LIBRARY</a></li>
+      <li ><a href="viewbooks.php">BOOKS</a></li>
+      <li><a href="addcat.php">DropDown</a>
         <ul>
           <li><a href="#">Link 1</a></li>
           <li><a href="#">Link 2</a></li>
@@ -95,9 +94,8 @@ while($rows=mysqli_fetch_array($result)){
         </ul>
       </li>
       <li><a href="news.php">News Feeds</a></li>
-	    <li ><a href="uploadbooks.php">Modified</a></li>
-	   
-      <li class="active last" ><a href="userprofile.php">Profile</a></li>
+      <li class="active last"><a href="userprofile.php">Profile</a></li>
+	  
     </ul>
     <div  class="clear"></div>
   </div>

@@ -9,6 +9,6 @@ $loggedin_id=$row['uid'];
 if(!isset($loggedin_session)  ||  $loggedin_session==NULL)
 {
 echo  "Go  back";
-header("Location:  ../adminlogin.php");
+header("Location:  ../login.php");
 }
 ?>

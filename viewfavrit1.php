@@ -61,21 +61,21 @@
         </style>
 </head>
 <body id="top">
-    <form method="POST" action="">
+    <form method="POST" action="search.php">
 <div class="wrapper row1">
   <div id="header" class="clear">
     <div class="fl_left">
-      <h1><a href="../index.html">Education Time</a></h1>
-      <p>Free Website Template</p>
+      <h1><a href="../index.html">Reader's Resource</a></h1>
+      
     </div>
       <fieldset>
         <legend>Student Login</legend>
       <br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="alogout.php">LOG OUT </a>
       
           <table align="right" class="auto-style12">
               <tr>
-                  <td><a href="logout.php">LOG OUT </a></td>
+                  <td>&nbsp;</td>
               </tr>
           </table>
 &nbsp;<div id="forgot">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div>
@@ -86,15 +86,14 @@
 <div class="wrapper row2">
   <div id="topnav">
    <ul>
-       <li ><a href="../homepage.php">Homepage</a></li>
+      <li ><a href="../homepage.php">Homepage</a></li>
       
-      <li ><a href="pages/viewbooks.php">BOOKS</a></li>
+      <li ><a href="viewbooks.php">BOOKS</a></li>
 	  <li class="active"><a href="pages/viewfavrit1.php">My Books</a></li>
       
-      <li><a href="pages/news.php">News Feeds</a></li>
-	  <li ><a href="pages/addbooks2.php">Upload Book</a></li>
-      <li class="last"><a href="pages/userprofile.php">Profile</a></li>
-	  
+      <li><a href="news.php">News Feeds</a></li>
+	  <li ><a href="addbooks2.php">Upload Book</a></li>
+      <li class="last"><a href="userprofile.php">Profile</a></li>
 	  
     </ul>
 
@@ -139,114 +138,28 @@
 				   
 				
 <table>
-<tr>
-			<th><a>Image</a></th>
-            <th><a>Book No.</a></th>
-            <th><a>Book Name<a></th>
-            <th><a>Authore</a></th>
-            <th><a>Category</a></th>
-			<th><a>Language</a></th>
-            
-    	</tr>
- <?php
-		$text = $_POST['txtsearch'];
-		if($text==""){
-			echo "No Data....Please Try Again!!!"."<br>";
-			echo '<a href="ViewTable.php"><img src="Images/Users_Group.png" title="Go Back"></a>';
-		}
-	?>
-    <?php
-		$cbo = $_POST['cbosearch'];
-		$search = $_POST['txtsearch'];
-		include('connect.php');
-	?>
-    <?php
-		if($cbo=="ISBN")
-		{
-			$id = mysql_query("SELECT isbn,bname,authname,category,language,image,pdf FROM cart  WHERE isbn ='$search' and uid=$loggedin_id" );
-	?>
-
-    <?php
-		while($tr=mysql_fetch_array($id))
-		{
-	?>
-			<tr>
-			<td><img src=<?php echo $tr[5]; ?> width='67px' height='78px' /></td>
-        	<td><a><?php echo $tr[0]; ?></a></td>
-            <td><a><?php echo $tr[1]; ?></a></td>
-            <td><a><?php echo $tr[2]; ?></a></td>
-            <td><a><?php echo $tr[3]; ?></a></td>
-			<td><a><?php echo $tr[4]; ?></a></td>
-
-            <td align="center"><a href="Delete_Form.php? txtid=<?php echo $tr[0];?>">Delete</a><a> /</a> <a href="read.php?id=<?php echo $tr[0];?>">Read</a> </td>    
-        </tr>
-            <?php
-		}
-		}else if($cbo=="Book Name")
-		{
-			$na = mysql_query("SELECT isbn,bname,authname,category,language,image,pdf  FROM cart WHERE bname REGEXP '[\\d \\D \\S \\s]*".$search."[\\d \\D \\S \\s]*' and uid=$loggedin_id");
-	?>
-    <?php
-		while($tr=mysql_fetch_array($na))
-		{
-	?>
-			<tr>
-			<td><img src=<?php echo $tr[5]; ?> width='67px' height='78px' /></td>
-        	<td><a><?php echo $tr[0]; ?></a></td>
-            <td><a><?php echo $tr[1]; ?></a></td>
-            <td><a><?php echo $tr[2]; ?></a></td>
-            <td><a><?php echo $tr[3]; ?></a></td>
-			<td><a><?php echo $tr[4]; ?></a></td>
-
-            <td align="center"><a href="Delete_Form.php? txtid=<?php echo $tr[0];?>">Delete</a><a> /</a> <a href="read.php?id=<?php echo $tr[0];?>">Read</a> </td>    
-        </tr>
-            <?php
-				}
-			?>  
-     <?php
-		}else if($cbo=="Authore")
-				{
-        $add = mysql_query("SELECT isbn,bname,authname,category,language,image,pdf  FROM cart WHERE authname REGEXP '[\\d \\D \\S \\s]*".$search."[\\d \\D \\S \\s]*' and uid=$loggedin_id" );
-     ?>
-		<?php
-		while($tr=mysql_fetch_array($add))
-		{
-		?>
-			<tr>
-			<td><img src=<?php echo $tr[5]; ?> width='67px' height='78px' /></td>
-        	<td><a><?php echo $tr[0]; ?></a></td>
-            <td><a><?php echo $tr[1]; ?></a></td>
-            <td><a><?php echo $tr[2]; ?></a></td>
-            <td><a><?php echo $tr[3]; ?></a></td>
-			<td><a><?php echo $tr[4]; ?></a></td>
-
-            <td align="center"><a href="Delete_Form.php? txtid=<?php echo $tr[0];?>">Delete</a><a> /</a> <a href="read.php?id=<?php echo $tr[0];?>">Read</a> </td>    
-        </tr>
-            <?php
-				}
-			}else if($cbo=="category")
+    	
+        <?php
+			include "connect.php";
+			$i = "select isbn,bname,authname,category,language,image,pdf from cart where uid=$loggedin_id";
+			$h = mysql_query($i);
+			while($tr=mysql_fetch_array($h))
 			{
-			$g = mysql_query("SELECT isbn,bname,authname,category,language,image,pdf  FROM cart WHERE category REGEXP '[\\d \\D \\S \\s]*".$search."[\\d \\D \\S \\s]*' and uid=$loggedin_id");
-			?>  
-			<?php
-				while($tr=mysql_fetch_array($g))
-				{			
-			?>
-           <tr>
-			<td>;<img src=<?php echo $tr[5]; ?> width='67px' height='78px' /></td>
+		?>
+        <tr>
+			<td>&nbsp;&nbsp;&nbsp;<img src="../<?php echo $tr[5]; ?>" width='67px' height='78px' /></td>
         	<td><a><?php echo $tr[0]; ?></a></td>
             <td><a><?php echo $tr[1]; ?></a></td>
             <td><a><?php echo $tr[2]; ?></a></td>
             <td><a><?php echo $tr[3]; ?></a></td>
 			<td><a><?php echo $tr[4]; ?></a></td>
 
-            <td align="center"><a href="Delete_Form.php? txtid=<?php echo $tr[0];?>">Delete</a><a> /</a> <a href="read.php?id=<?php echo $tr[0];?>">Read</a> </td>    
+            <td align="center"><a href="Delete_Form.php? txtid=<?php echo $tr[0];?>">Delete</a><a> /</a>  </td>    
         </tr>
-            <?php
-				}
+        <?php
 			}
-			?>
-</table>
+		?>
+		
     </table>
   </div>
 </div>

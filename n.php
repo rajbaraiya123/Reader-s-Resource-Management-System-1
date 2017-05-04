@@ -38,7 +38,7 @@ $sql = "INSERT INTO books(bname,authname,category,language,image,pdf,descript)
 VALUES('$bname', '$auth', '$cat', '$lan', '$target_path1', '$target_path', '$dsc')";
 $current_id = mysql_query($sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysql_error());
 if(isset($current_id)) {
-header("Location: addbooks1.php?book=1");
+header("Location: addbooks2.php?book=1");
 
 }}}
 

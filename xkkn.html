@@ -1,17 +1,14 @@
 
-<?php
-include('session.php');
-?>
 
-<!DOCTYPE html>
-<?php
-	include("cookie.php");
-?>
-<?php
-	$con=mysql_connect("localhost","root","");
-	mysql_select_db("lib1");
-?>
-	
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+Template Name: Education Time
+Author: <a href="http://www.os-templates.com/">OS Templates</a>
+Author URI: http://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: http://www.os-templates.com/template-terms
+-->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Education Time | Full Width</title>
@@ -101,32 +98,12 @@ include('session.php');
             width: 249px;
             height: 278px;
         }
-		     .auto-style24 {
-            font-family: "Yu Gothic UI Semibold";
-            font-size: large;
-            border-left-color: #A0A0A0;
-            border-right-color: #C0C0C0;
-            border-top-color: #A0A0A0;
-            border-bottom-color: #C0C0C0;
-            padding: 1px;
-        }
-		.auto-style25 {
-            height: 29px;
-        }
-		.auto-style27 {
-            width: 61%;
-            float: right;
-			height:20px
-        }
-		  .auto-style29 {
-            width: 124px;
-        }
     </style>
 	<script src="//cloud.tinymce.com/stable/tinymce.min.js"></script>
   <script>tinymce.init({ selector:'textarea' });</script>
 </head>
 <body id="top">
-    <form action="n.php" method="POST" enctype="multipart/form-data">
+    <form id="form1" runat="server">
 <div class="wrapper row1">
   <div id="header" class="clear">
     <div class="fl_left">
@@ -134,24 +111,31 @@ include('session.php');
       <p>Free Website Template</p>
     </div>
       <fieldset>
-        </div>
-       
-      
+        <legend>Student Login</legend>
+        <input type="password" />
+        <input type="text" />
+        <div id="forgot">Need <a href="#">Help ?</a> or <a href="#">Forgot Your Details ?</a></div>
+        <input type="image" src="../layout/images/sign_in.gif" id="signin" alt="Sign In" />
+      </fieldset>
     </div>
 </div>
 <!-- ####################################################################################################### -->
 <div class="wrapper row2">
   <div id="topnav">
-     <ul>
-       <li><a href="homepage.php">Homepage</a></li>
-      <li><a href="style-demo.html">LIBRARY</a></li>
-      <li ><a href="viewbooks.php">BOOKS</a></li>
-    
-      <li><a href="news.php">News Feeds</a></li>
-      <li class="last"><a href="userprofile.php">Profile</a></li>
-	  
+    <ul>
+      <li><a href="../index.html">Homepage</a></li>
+      <li><a href="style-demo.html">Style Demo</a></li>
+      <li class="active"><a href="full-width.html">Full Width</a></li>
+      <li><a href="#">DropDown</a>
+        <ul>
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+        </ul>
+      </li>
+      <li><a href="3-columns.html">3 Columns</a></li>
+      <li class="last"><a href="gallery.html">Gallery</a></li>
     </ul>
-
     <div  class="clear"></div>
   </div>
 </div>
@@ -192,7 +176,7 @@ include('session.php');
                       <tr>
                           <td class="auto-style9">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Category&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                               <select name="category">
-				<option>select Category</option>
+				<option>select ctegory</option>
 				<?php
 				$get_cats = "select * from category";
 		$run_cats=mysql_query($get_cats);
@@ -212,7 +196,7 @@ include('session.php');
                       <tr>
                           <td class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Language&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                               <select name="lan">
-				<option>select Language</option>
+				<option>select language</option>
 				<?php
 				$get_cats = "select * from language";
 		$run_cats=mysql_query($get_cats);
@@ -246,30 +230,9 @@ include('session.php');
                           <td class="auto-style6"></td>
                       </tr>
                       <tr>
-                          <td class="auto-style22">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                           <table align="right" class="auto-style27">
-                                  <tr>
-                                      <td class="auto-style29"><textarea name="desc" cols="12" rows="20"></textarea></td>
-                                  </tr>
-                              </table>
+                          <td class="auto-style22">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Description&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <textarea <textarea name="desc" cols="8" rows="5"></textarea>
                           </td>
-                          </td>
-                      </tr>
-					    <tr>
-                          <td class="auto-style25">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="submit">
-                          </td>
-                      </tr>
-                      <tr>
-                          <td class="auto-style25"> 
-							</td>
-                      </tr>
-					   <tr>
-                          <td class="auto-style25">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php 
-							if(isset($_REQUEST["book"]))
-							{
-								echo"BOOKS SUCESSFULLY ADDED";
-							}
-							?></td>
                       </tr>
                       </table>
                   <table align="left" class="auto-style7">
@@ -283,7 +246,7 @@ include('session.php');
                           <td class="auto-style8">&nbsp;</td>
                       </tr>
                       <tr>
-                          <td class="auto-style8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="addbooks1"> ADD BOOKS</a>&nbsp;</td>
+                          <td class="auto-style8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ADD BOOKS&nbsp;</td>
                       </tr>
                       <tr>
                           <td class="auto-style8">&nbsp;</td>
@@ -295,7 +258,7 @@ include('session.php');
                           <td class="auto-style8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
                       </tr>
                       <tr>
-                          <td class="auto-style8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="addcat.php"> ADD CATEGORY</a>&nbsp;</td>
+                          <td class="auto-style8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ADD CATEGORY&nbsp;</td>
                       </tr>
                       <tr>
                           <td class="auto-style8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
@@ -307,7 +270,7 @@ include('session.php');
                           <td class="auto-style8">&nbsp;</td>
                       </tr>
                       <tr>
-                          <td class="auto-style17">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a hreff="addlan.php">ADD LANGUAGE</a>&nbsp;</td>
+                          <td class="auto-style17">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ADD LANGUAGE&nbsp;</td>
                       </tr>
                       <tr>
                           <td class="auto-style11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
@@ -323,24 +286,6 @@ include('session.php');
                       </tr>
                       <tr>
                           <td class="auto-style23"></td>
-                      </tr>
-					    <tr>
-                          <td class="auto-style10">c</td>
-                      </tr>
-					    <tr>
-                          <td class="auto-style10">&nbsp;</td>
-                      </tr>
-					    <tr>
-                          <td class="auto-style10">&nbsp;</td>
-                      </tr>
-					    <tr>
-                          <td class="auto-style10">&nbsp;</td>
-                      </tr>
-					    <tr>
-                          <td class="auto-style10">&nbsp;</td>
-                      </tr>
-					    <tr>
-                          <td class="auto-style10">&nbsp;</td>
                       </tr>
                   </table>
               </td>

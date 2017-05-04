@@ -1,5 +1,8 @@
 
 <?php
+	include("cookie.php");
+?>
+<?php
  include("session.php");
  ?>
 <?php
@@ -21,7 +24,7 @@
 		
 			$id = $_GET['txtid'];
 			include ("connect.php");
-			$i = "select * from books where isbn=".$id;
+			$i = "select * from cart where isbn=".$id;
 			$h = mysql_query($i);
 			if($tr=mysql_fetch_array($h))
 			{
@@ -67,9 +70,9 @@
 			if(isset($id))
 			{
         include("connect.php");
-        $i = mysql_query("delete from books where isbn=".$id);
+        $i = mysql_query("delete from cart where isbn=".$id);
         if($i==true){
-        header("Location: modified.php");
+        header("Location: viewfavrit1.php");
 
 
         }

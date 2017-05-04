@@ -2,7 +2,7 @@
 	include("cookie.php");
 ?>
 <?php
- include("session1.php");
+ include("session.php");
  ?>
 <?php
 	$con=mysql_connect("localhost","root","");
@@ -65,8 +65,8 @@
 <div class="wrapper row1">
   <div id="header" class="clear">
     <div class="fl_left">
-      <h1><a href="../index.html">Reader's Resource</a></h1>
-   
+      <h1><a href="../index.html">Education Time</a></h1>
+      <p>Free Website Template</p>
     </div>
       <fieldset>
         <legend>Student Login</legend>
@@ -86,11 +86,11 @@
 <div class="wrapper row2">
   <div id="topnav">
    <ul>
-       <li ><a href="../adminhomepage.php">Homepage</a></li>
-	     <li><a href="viewbooks.php">BOOKS</a></li>
-      <li class="active"> <a href="uploadbooks.php">View Uploaded Books</a></li>
-    
-      <li><a href="addcat.php">Add Things</a>
+        <li ><a href="../homepage.php">Homepage</a></li>
+      
+      <li ><a href="viewbooks.php">BOOKS</a></li>
+	  <li ><a href="viewfavrit1.php">My Books</a></li>
+      <li><a href="add.php">DropDown</a>
         <ul>
           <li><a href="#">Link 1</a></li>
           <li><a href="#">Link 2</a></li>
@@ -98,10 +98,11 @@
         </ul>
       </li>
       <li><a href="news.php">News Feeds</a></li>
-	    <li ><a href="uploadbooks.php">Modified</a></li>
-	   
-      <li class="last" ><a href="userprofile.php">Profile</a></li>
-	 
+	  <li class="active"><a href="addbooks2.php">Upload Book</a></li>
+      <li class="last"><a href="userprofile.php">Profile</a></li>
+	  
+	  
+	  
     </ul>
 
     <div  class="clear"></div>
@@ -154,13 +155,13 @@
 			{
 		?>
         <tr>
-			<td>&nbsp;&nbsp;&nbsp;<img src="../<?php echo $tr[5]; ?>" width='67px' height='78px' /></td>
-         	<td><a><?php echo $tr[0]; ?></a></td>
+			<td>&nbsp;&nbsp;&nbsp;<img src=<?php echo $tr[5]; ?> width='67px' height='78px' /></td>
+        	<td><a><?php echo $tr[0]; ?></a></td>
             <td><a><?php echo $tr[1]; ?></a></td>
             <td><a><?php echo $tr[2]; ?></a></td>
             <td><a><?php echo $tr[3]; ?></a></td>
 			<td><a><?php echo $tr[4]; ?></a></td>
-             <td><a><?php echo $tr[5]; ?></a></td>
+
             <td align="center"><a href="Delete_Form.php? txtid=<?php echo $tr[0];?>">Delete</a><a> /</a> <a href="addbooks3.php?txtid=<?php echo $tr[0];?>">Edit</a> </td>    
         </tr>
         <?php

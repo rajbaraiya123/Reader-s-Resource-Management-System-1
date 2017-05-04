@@ -131,8 +131,8 @@ include('cookie.php');
 <div class="wrapper row1">
   <div id="header" class="clear">
     <div class="fl_left">
-      <h1><a href="../index.html">Education Time</a></h1>
-      <p>Free Website Template</p>
+      <h1><a href="../index.html">Reader's Resource</a></h1>
+   
     </div>
       <fieldset>
         </div>
